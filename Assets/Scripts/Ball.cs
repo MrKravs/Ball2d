@@ -7,6 +7,15 @@ public class Ball : MonoBehaviour
     [SerializeField][Range(0, 20)]private int _timeBallLife;
 
     private float _startTime;
+
+    private void Awake()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        Color color = Settings.ParseCircleColorFromPP();
+        sr.color = color;
+    }
+
     private void Start()
     {
         _startTime = Time.time;
